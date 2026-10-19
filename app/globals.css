@@ -1,0 +1,10 @@
+:root{--g:#0f3d2e;--g2:#2f7d5b;--soft:#dcefe3;--bg:#f3f5f2;--line:#d9e0db}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial,sans-serif;background:var(--bg);color:#17211c}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+header{background:var(--g);color:#fff}header .wrap{display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+header a{color:#fff;margin-left:14px;text-decoration:none;font-weight:700}
+input,select,textarea,button{font:inherit;padding:10px;border-radius:8px;border:1px solid var(--line);width:100%}
+button{background:var(--g2);color:#fff;border:0;font-weight:700;cursor:pointer}
+form,.filters{display:grid;gap:8px;margin:16px 0}
+.job{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;margin:10px 0}
+.meta{color:#5d6b63;font-size:.9rem}.msg{color:var(--g2);font-weight:700}
