@@ -32,7 +32,7 @@ header nav a.on{background:var(--brand);color:#fff}
 .btn-f{background:var(--brand);color:#fff}
 .btn-f:hover{background:var(--brand-2)}
 /* hero */
-.hero{margin:0 calc(50% - 50vw);width:100vw;min-height:400px;padding:0 20px 96px;background:linear-gradient(90deg,rgba(255,255,255,0) 25%,rgba(255,255,255,.86) 70%),url("/hero.jpg") center 35%/cover no-repeat}
+.hero{margin:0 calc(50% - 50vw);width:100vw;min-height:400px;padding:0 20px 96px;background:linear-gradient(90deg,rgba(255,255,255,0) 25%,rgba(255,255,255,.86) 70%),url("/hero.png") center 35%/cover no-repeat}
 .hero-in{max-width:1120px;margin:0 auto;padding-top:60px;display:grid;grid-template-columns:minmax(0,480px);justify-content:end}
 .hero h1{font-size:clamp(1.7rem,3.6vw,2.5rem);max-width:20ch;margin:0 0 12px}
 .hero p{font-size:1.1rem;margin:0;color:#1d2b24}
