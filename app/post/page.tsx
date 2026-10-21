@@ -28,14 +28,12 @@ export default function Post() {
       <select name="category" required>{CATEGORIES.map(l => <option key={l}>{l}</option>)}</select>
       <select name="job_type" required>{TYPES.map(l => <option key={l}>{l}</option>)}</select>
 <select name="kind" required>
-  <option value="">Төрөл сонгох</option>
-  <option value="Ажил">Ажил</option>
-  <option value="Дадлага">Дадлага</option>
-</select>
-      <input name="salary" type="number" min="0" placeholder="Цалин (₮)" />
-      <input name="expires_at" type="date" />
-      <textarea name="description" rows={4} placeholder="Үүрэг, шаардлага, цагийн хуваарь, холбоо барих" />
-      <button>Шалгуулахаар илгээх</button>
+  <option value="hiring">Ажилд авна</option>
+  <option value="seeking">Ажил хайна</option>
+</select><input name="salary" type="number" min="0" placeholder="Цалин (₮)" />
+<input name="expires_at" type="date" />
+<textarea name="description" rows={4} placeholder="Үүрэг, шаардлага, цагийн хуваарь, холбоо барих" />
+<button>Шалгуулахаар илгээх</button>
     </form><p className="msg">{msg}</p>
   </>);
 }
