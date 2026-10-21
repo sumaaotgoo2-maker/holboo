@@ -13,7 +13,7 @@ export default function Post() {
     const type = String(f.get("job_type"));
     const { error } = await supabase.from("jobs").insert({
       company: f.get("company"), title: f.get("title"), description: f.get("description"),
-      location: f.get("location"), category: f.get("category"), job_type: type,
+      location: f.get("location"), category: f.get("category"), job_type: type, kind: String(f.get("kind")),
       remote: type === "Зайнаас", salary: Number(f.get("salary")) || null,
       expires_at: f.get("expires_at") || null });
     setMsg(error ? "Алдаа: " + error.message : "Зар шалгалтад илгээгдлээ. Баталгаажсаны дараа нийтлэгдэнэ.");
@@ -27,6 +27,11 @@ export default function Post() {
       <select name="location" required>{LOCATIONS.map(l => <option key={l}>{l}</option>)}</select>
       <select name="category" required>{CATEGORIES.map(l => <option key={l}>{l}</option>)}</select>
       <select name="job_type" required>{TYPES.map(l => <option key={l}>{l}</option>)}</select>
+<select name="kind" required>
+  <option value="">Төрөл сонгох</option>
+  <option value="Ажил">Ажил</option>
+  <option value="Дадлага">Дадлага</option>
+</select>
       <input name="salary" type="number" min="0" placeholder="Цалин (₮)" />
       <input name="expires_at" type="date" />
       <textarea name="description" rows={4} placeholder="Үүрэг, шаардлага, цагийн хуваарь, холбоо барих" />
