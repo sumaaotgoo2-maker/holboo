@@ -21,6 +21,7 @@ export default function Home() {
   const [cat, setCat] = useState(""); const [type, setType] = useState("");
   const [min, setMin] = useState(""); const [err, setErr] = useState("");
   const [stats, setStats] = useState({ jobs: 0, companies: 0 });
+  const [kind, setKind] = useState("hiring");
 
   useEffect(() => {
     (async () => {
@@ -31,11 +32,11 @@ export default function Home() {
       if (loc) query = query.eq("location", loc);
       if (cat) query = query.eq("category", cat);
       if (type) query = query.eq("job_type", type);
-      if (min) query = query.gte("salary", Number(min));
+      if (min) query = query.gte("salary", Number(min));query = query.eq("kind", kind);
       const { data, error } = await query;
       if (error) setErr("Зар ачаалж чадсангүй."); else { setErr(""); setJobs(data as Job[]); }
     })();
-  }, [q, loc, cat, type, min]);
+  }, [q, loc, cat, type, min, kind]);
 
   useEffect(() => {
     (async () => {
@@ -50,7 +51,18 @@ export default function Home() {
         <h1>Таны дараагийн боломж эндээс эхэлнэ</h1>
         <p>Монгол даяар ажлын байрны мэдээллийг нэг дороос.</p>
       </div>
-    </section>
+    </section><div style={{ display: "flex", gap: 8, margin: "16px 0" }}>
+  <button type="button" onClick={() => setKind("hiring")}
+    style={{ padding: "10px 18px", borderRadius: 999, border: "1px solid #1f7a55", cursor: "pointer", fontWeight: 700,
+      background: kind === "hiring" ? "#1f7a55" : "#fff", color: kind === "hiring" ? "#fff" : "#1f7a55" }}>
+    Ажилд авна
+  </button>
+  <button type="button" onClick={() => setKind("seeking")}
+    style={{ padding: "10px 18px", borderRadius: 999, border: "1px solid #1f7a55", cursor: "pointer", fontWeight: 700,
+      background: kind === "seeking" ? "#1f7a55" : "#fff", color: kind === "seeking" ? "#fff" : "#1f7a55" }}>
+    Ажил хайна
+  </button>
+</div>
 
     <form className="search" onSubmit={e => { e.preventDefault(); document.getElementById("jobs")?.scrollIntoView({ behavior: "smooth" }); }}>
       <input placeholder="Ажлын байр, байгууллагын нэр" value={q} onChange={e => setQ(e.target.value)} />
